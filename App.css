@@ -1,0 +1,7 @@
+.row{
+    flex-direction: "column";
+    height: 250;
+    padding: 30;
+    flex-wrap: "wrap";
+    margin: 10,
+}
