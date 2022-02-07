@@ -5,7 +5,8 @@ import { BsEmojiHeartEyesFill, BsEmojiHeartEyes } from "react-icons/bs";
 import axios from "axios";
 
 
-function IsFavorite() {
+function IsFavorite(props) {
+    const {post}=props
     const [isFav, setFav] = useState(false);
     const [isLoading, setloading] = useState(false);
     const hasFavorite = () => {
@@ -15,13 +16,13 @@ function IsFavorite() {
             setFav(true)
         }
         const data = {
+            "_id":post._id,
             "isFav": isFav
         }
 
         setloading(true);
-        //  axios.get('https://whispering-lowlands-74128.herokuapp.com/listClasses')
         axios
-            .post("https://whispering-lowlands-74128.herokuapp.com/listClasses", data)
+            .post("http://localhost:8081/addFav", data)
 
             .then((response) => {
                 console.log(response.data);

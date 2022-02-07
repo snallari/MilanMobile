@@ -10,7 +10,7 @@ const MilanTileView = (props) => {
   return (
     <Card
       keyExtractor={(post) => post._id}
-      onPress={() => navigation.navigate("Details", { postItem: post })}
+     // onPress={() => navigation.navigate("Details", { postItem: post })}
       bottomDivider>
       <Image
         source={{
@@ -20,7 +20,7 @@ const MilanTileView = (props) => {
       />
       <Card.Title>{post.title}</Card.Title>
       <Text>{post.description}</Text>
-      {fav.isFav?<IsFavorite/>:<p></p>}
+      <IsFavorite post={post}></IsFavorite>
     </Card>
   );
 };
