@@ -1,5 +1,13 @@
-.row{
+.list{
     flex-direction: "column";
+    height: 250;
+    padding: 30;
+    flex-wrap: "wrap";
+    margin: 10,
+}
+
+.tile{
+    flex-direction: "row";
     height: 250;
     padding: 30;
     flex-wrap: "wrap";

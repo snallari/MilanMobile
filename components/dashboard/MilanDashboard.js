@@ -49,7 +49,12 @@ const MilanDashboard = (props) => {
       .then((response) => {
         console.log(response.data);
         setloading(false);
-        setposts(response.data);
+        if(fav.isFav){
+          setposts(response.data);
+        }else{
+          setposts(response.data.filter(data=>data.isFav))
+        }
+        
       })
       .catch((response) => {
         console.log(response);
@@ -61,7 +66,7 @@ const MilanDashboard = (props) => {
 
   return (
     <ScrollView>
-      <View style={{ flexDirection: "row", flexWrap: "wrap", alignSelf: "flex-end", margin: 10}}>
+      <View style={isTileView?{flexDirection: "row", flexWrap: "wrap", alignSelf: "flex-end", margin: 10}:{flexDirection: "column", flexWrap: "wrap", alignSelf: "flex-end", margin: 10}}>
         <TouchableOpacity onPress={() => setTileView(true)}>
           <BsFillGridFill></BsFillGridFill>
         </TouchableOpacity>

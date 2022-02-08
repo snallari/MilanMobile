@@ -7,12 +7,12 @@ import axios from "axios";
 
 function IsFavorite(props) {
     const {post}=props
-    const [isFav, setFav] = useState(false);
+    const [isFav, setFav] = useState(post.isFav);
     const [isLoading, setloading] = useState(false);
     const hasFavorite = () => {
         if (isFav) {
             setFav(false)
-        } else {
+        } else{
             setFav(true)
         }
         const data = {

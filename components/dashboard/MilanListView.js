@@ -9,7 +9,7 @@ const MilanListView = (props) => {
 
 
 
-  console.log("post", post, props)
+  console.log("postfav", props)
 
   if (post) {
     return (
@@ -26,7 +26,12 @@ const MilanListView = (props) => {
         />
         <ListItem.Content>
           <ListItem.Title>{post.title}</ListItem.Title>
-          <ListItem.Subtitle>{post.description} <IsFavorite post={post}></IsFavorite></ListItem.Subtitle>
+          <ListItem.Subtitle>{post.description}
+          {fav.isFav?
+           post && post.isFav == undefined ?<BsEmojiHeartEyes></BsEmojiHeartEyes>:<IsFavorite post={post}></IsFavorite>:
+           <p></p>
+          }
+          </ListItem.Subtitle>
 
         </ListItem.Content>
       </ListItem>

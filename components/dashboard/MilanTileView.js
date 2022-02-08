@@ -1,16 +1,16 @@
 import React from "react";
-import { Image } from "react-native";
-import { Text } from "react-native";
+import { Image,  Text ,TouchableOpacity} from "react-native";
 import { Card } from "react-native-elements";
 import IsFavorite from "./IsFavorite";
+import { BsEmojiHeartEyesFill, BsEmojiHeartEyes } from "react-icons/bs";
 
 const MilanTileView = (props) => {
   const { navigation, post, fav } = props;
-  console.log("post", post, props);
+  console.log("postfav", props)
   return (
     <Card
       keyExtractor={(post) => post._id}
-     // onPress={() => navigation.navigate("Details", { postItem: post })}
+      // onPress={() => navigation.navigate("Details", { postItem: post })}
       bottomDivider>
       <Image
         source={{
@@ -20,7 +20,11 @@ const MilanTileView = (props) => {
       />
       <Card.Title>{post.title}</Card.Title>
       <Text>{post.description}</Text>
-      <IsFavorite post={post}></IsFavorite>
+      <TouchableOpacity>   {fav.isFav ?
+        post && post.isFav == undefined ? <BsEmojiHeartEyes></BsEmojiHeartEyes> : <IsFavorite post={post}></IsFavorite> :
+        <p></p>
+      }
+      </TouchableOpacity>
     </Card>
   );
 };
