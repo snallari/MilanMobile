@@ -17,12 +17,12 @@ function IsFavorite(props) {
         }
         const data = {
             "_id":post._id,
-            "isFav": isFav
+            "isFav": !isFav
         }
 
         setloading(true);
         axios
-            .post("http://localhost:8081/addFav", data)
+            .post("https://whispering-lowlands-74128.herokuapp.com/addFav", data)
 
             .then((response) => {
                 console.log(response.data);
@@ -34,7 +34,7 @@ function IsFavorite(props) {
             });
         console.log(isFav, "favorite");
     }
-    return <TouchableOpacity onPress={hasFavorite}>{isFav ? <BsEmojiHeartEyes></BsEmojiHeartEyes> : <BsEmojiHeartEyesFill></BsEmojiHeartEyesFill>}</TouchableOpacity>
+    return <TouchableOpacity onPress={hasFavorite}>{isFav ?<BsEmojiHeartEyesFill></BsEmojiHeartEyesFill>:<BsEmojiHeartEyes></BsEmojiHeartEyes>}</TouchableOpacity>
 }
 
 export default IsFavorite;
