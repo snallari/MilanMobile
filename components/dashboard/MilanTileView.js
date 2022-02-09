@@ -6,9 +6,17 @@ import { BsEmojiHeartEyesFill, BsEmojiHeartEyes } from "react-icons/bs";
 
 const MilanTileView = (props) => {
   const { navigation, post, fav } = props;
+  const inlineTile={
+    marginBottom: 15,
+    textOverflow: "ellipsis",
+    width: 11,
+    whiteSpace: "nowrap",
+    overflow: "hidden"
+  }
   console.log("postfav", props)
   return (
     <Card
+      style={inlineTile}
       keyExtractor={(post) => post._id}
       // onPress={() => navigation.navigate("Details", { postItem: post })}
       bottomDivider>

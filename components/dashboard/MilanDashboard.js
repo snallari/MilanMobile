@@ -23,15 +23,13 @@ const MilanDashboard = (props) => {
   const [error, setError] = useState("");
   const [posts, setposts] = useState([]);
   const [isLoading, setloading] = useState(false);
-  const [isTileView, setTileView] = useState(false);
+  const [isTileView, setTileView] = useState(true);
   const [isValue, setisValue] = useState(false);
   const [styleName, setStyles] = useState("");
   const inline = {
-    flexDirection: "column",
-    height: 250,
-    padding: 30,
-    flexWrap: "wrap",
-    margin: 10,
+    flexDirection: "row",
+    flexWrap: "wrap", 
+    alignSelf: "flex-end", 
   };
 
   useEffect(() => {
@@ -66,7 +64,7 @@ const MilanDashboard = (props) => {
 
   return (
     <ScrollView>
-      <View style={isTileView?{flexDirection: "row", flexWrap: "wrap", alignSelf: "flex-end", margin: 10}:{flexDirection: "column", flexWrap: "wrap", alignSelf: "flex-end", margin: 10}}>
+      <View style={{flexDirection: "column", flexWrap: "wrap", alignSelf: "flex-end", margin: 10}}>
         <TouchableOpacity onPress={() => setTileView(true)}>
           <BsFillGridFill></BsFillGridFill>
         </TouchableOpacity>
