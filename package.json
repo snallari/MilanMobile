@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-navigation/drawer": "^6.3.1",
     "@react-navigation/native": "6.0.6",
     "@react-navigation/native-stack": "6.2.5",
     "axios": "0.24.0",
@@ -18,7 +19,9 @@
     "react-icons": "4.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-elements": "3.4.2",
+    "react-native-gesture-handler": "^2.2.0",
     "react-native-paper": "^4.11.2",
+    "react-native-reanimated": "^2.4.1",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.4.0",
     "react-native-svg": "12.1.1",

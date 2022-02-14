@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { View } from "react-native";
 import MilanLogin from "./Login";
 import MilanHeader from "../header/MilanHeader";
@@ -7,7 +7,7 @@ import RegisterMilan from "./RegisterMilan";
 import MilanMenu from "../header/MilanMenu";
 
 function LoginContainer() {
-    let isLogin=false;
+  const [isLogin, setisLogin] = useState(true);
     if(!isLogin){
         return (
             <View>
@@ -19,7 +19,7 @@ function LoginContainer() {
         return (
             <View>
               <MilanHeader header={"Login"} />
-              <Login />
+              <MilanLogin/>
             </View>
           );
     }

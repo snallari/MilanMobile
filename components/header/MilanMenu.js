@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MilanSettings from '../settings/MilanSettings';
 import { BottomNavigation, Text } from 'react-native-paper';
 import MilanDashboard from '../dashboard/MilanDashboard';
 import Register from '../login/Register';
@@ -22,7 +23,7 @@ const MilanMenu = (props) => {
       case 'fav':
         return <MilanDashboard navigation={navi} fav={{isFav:false}}></MilanDashboard>;
       case 'settings':
-        return <Register registerBtnTxt={"SAVE"}></Register>
+        return <MilanSettings></MilanSettings>
     }
   }
 

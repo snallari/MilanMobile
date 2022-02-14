@@ -1,11 +1,15 @@
+//Remove for phones
+import 'react-native-gesture-handler';
+
 import React, {useState} from "react";
+
 import MilanDashboard from "./components/dashboard/MilanDashboard";
 import RegisterMilan from "./components/login/RegisterMilan";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import MilanDetails from "./components/dashboard/MilanDetails";
-import MilanLogin from "./components/login/Login";
+import LoginContainer from "./components/login/Login";
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import MilanMenu from "./components/header/MilanMenu";
 
@@ -72,9 +76,9 @@ export default function App() {
         <Stack.Navigator theme={isEducator?navTheme:navPinkTheme}>
           <Stack.Screen
             name="Register"
-            component={RegisterMilan}
+            component={LoginContainer}
           ></Stack.Screen>
-          <Stack.Screen name="Login" component={MilanLogin}></Stack.Screen>
+          {/* <Stack.Screen name="Login" component={MilanLogin}></Stack.Screen> */}
           <Stack.Screen
             name="Dashboard"
             component={MilanMenu}

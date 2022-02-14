@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { Input, Card, Button } from "react-native-elements";
+import axios from "axios";
 
 export class MilanLogin extends Component {
+  loading=false;
   constructor(props) {
     super(props);
-    
+
     this.state = {
       email: "",
       password: ""
     };
-   
+
   }
   setVal = (e) => {
     if (e.target.placeholder === "E-mail") {
@@ -24,9 +26,23 @@ export class MilanLogin extends Component {
   };
 
   submit = () => {
-    const {navigation}=this.props
-    console.log(this.state, this.props);
-    navigation.navigate('Dashboard')
+    const { navigation } = this.props
+    this.loading=true;
+    console.log("req", this.state)
+    axios
+      .post("http://localhost:8081/filterClass", this.state)
+      .then((response) => {
+        this.loading=false;
+        console.log(response.data);
+        if (!this.loading) {
+          navigation.navigate('Dashboard')
+        }
+      })
+      .catch((response) => {
+        this.loading=false;
+        console.log(response);
+      });
+
   };
 
   render() {

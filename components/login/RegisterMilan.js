@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Input, Card, Button } from "react-native-elements";
+import axios from "axios";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -7,14 +8,28 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 function RegisterMilan(props) {
     const {navigation}=props
     const [val, setVal] = useState({})
+    const [loading, setloading] = useState(false);
 
     const submitValues=()=>{
-        console.log(navigation);
-        navigation.navigate('Login')
+        console.log("registration",val,navigation);
+        axios
+       .post("https://whispering-lowlands-74128.herokuapp.com/addClasses", val)
+
+       .then((response) => {
+           console.log(response.data);
+           setloading(false);
+           if(!loading){
+            navigation.navigate('Login')
+           }
+       })
+       .catch((response) => {
+           console.log(response);
+           setloading(false);
+       });
     }
 
     const setValues=(e)=>{
-       setVal({...val, [e.target.placeholder]:e.target.value})
+       setVal({...val, [(e.target.placeholder).toLowerCase()]:e.target.value})
     }
 
     return (
