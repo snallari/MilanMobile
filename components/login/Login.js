@@ -30,7 +30,7 @@ export class MilanLogin extends Component {
     this.loading=true;
     console.log("req", this.state)
     axios
-      .post("http://localhost:8081/filterClass", this.state)
+      .post("http://localhost:8081/login", this.state)
       .then((response) => {
         this.loading=false;
         console.log(response.data);
